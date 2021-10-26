@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Avatar from './Avatar';
 import { user } from '../data/sample-data';
-
+import { Link } from 'react-router-dom';
 export default function Sidebar() {
   const sidebarItem = [
     'home',

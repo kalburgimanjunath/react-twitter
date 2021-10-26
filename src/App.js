@@ -13,23 +13,27 @@ import {
   Profile,
   Settings,
 } from './pages/index.js';
-import Modal from 'react-modal';
+import Modal from './components/Modal';
+// import useModal from './components/useModal';
+// import Modal from 'react-modal';
 export default function App() {
   const [users, setUsers] = useState();
   const [posts, setPosts] = useState();
-  const [modalIsOpen, setIsOpen] = useState(false);
-  let subtitle;
+  const [show, setShow] = useState(false);
+  // const { isShowing, toggle } = useModal();
+  // const [modalIsOpen, setIsOpen] = useState(false);
+  // let subtitle;
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = 'blue';
-  }
+  // const openModal = () => {
+  //   setIsOpen(true);
+  // };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
+  // function afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   subtitle.style.color = 'blue';
+  // }
   const getApiData = async () => {
     const response = await fetch(
       'https://jsonplaceholder.typicode.com/users'
@@ -48,6 +52,7 @@ export default function App() {
   useEffect(() => {
     getApiData();
   }, []);
+  const newModal = new Modal();
 
   return (
     <div>
@@ -77,15 +82,24 @@ export default function App() {
           <Bookmarks users={users} posts={posts} />
         </Route>
         <Route path="/settings">
-          <button onClick={openModal}>Open Modal</button>
+          {/* <button onClick={openModal}>Open Modal</button> */}
           <Settings users={users} posts={posts} />
         </Route>
         <Route path="/*" exact>
+          <Modal show={show} />
+
+          <button
+            onClick={(e) => {
+              newModal.showModal(e);
+            }}
+          >
+            show Modal
+          </button>
           <Login />
         </Route>
       </Switch>
 
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
@@ -102,7 +116,7 @@ export default function App() {
           <button>inside</button>
           <button>the modal</button>
         </form>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
