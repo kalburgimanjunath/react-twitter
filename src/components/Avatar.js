@@ -1,6 +1,7 @@
 import React from 'react';
-export default function Avatar({ user, type }) {
-  // console.log(type);
+import { users, user } from '../data/sample-data';
+export default function Avatar({ user = user, type }) {
+  // console.log(user);
   return (
     <div>
       {type === 'image' ? (
