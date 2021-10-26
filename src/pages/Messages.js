@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Sidebar, Widget, Header, Post, Footer } from '../components/index';
 // import { users, user } from '../data/sample-data';
-
-export default function Dashboard({ users, posts }) {
-  // console.log(posts);
+export default function Messages({ users, posts }) {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <Sidebar />
-        <div className="col-md-9">
+        <div className="col-md-8">
           <Header />
           <div className="row">
             <Post posts={posts} users={users} />
             <div className="col-md-4">
-              {/* <Widget title="Whats's happening" users={users} />
-              <Widget title="Who to follow" users={users} /> */}
-              <Widget title="You might like" users={users} />
+              <Widget title="Whats's happening" users={users} />
+              <Widget title="Who to follow" users={users} />
             </div>
           </div>
 

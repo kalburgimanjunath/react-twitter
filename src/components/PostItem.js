@@ -2,7 +2,8 @@ import React from 'react';
 // import { user } from '../data/sample-data';
 import Avatar from './Avatar';
 import PostContent from './PostContent';
-export default function PostItem({ users }) {
+import Widget from './Widget';
+export default function PostItem({ users, posts }) {
   return (
     <div>
       {users.map((user) => {
@@ -10,8 +11,9 @@ export default function PostItem({ users }) {
           <div>
             <Avatar user={user} type="image" />
             <div>
-              <PostContent post={user.post} user={user} />
+              <PostContent user={user} posts={posts} />
             </div>
+            {/* <Widget title="Who to follow" users={user} /> */}
           </div>
         );
       })}

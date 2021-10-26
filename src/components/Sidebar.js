@@ -20,9 +20,14 @@ export default function Sidebar() {
   // };
 
   return (
-    <div>
-      <h1>Logo</h1>
-      <Navbar items={sidebarItem} />
+    <div className="col-md-2">
+      <h3>Twitter</h3>
+      <ul className="nav flex-column">
+        <Navbar items={sidebarItem} className="nav-item" />
+        <li>
+          <a href="#">Settings</a>
+        </li>
+      </ul>
       <Avatar user={user} />
     </div>
   );

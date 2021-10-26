@@ -5,8 +5,12 @@ export default function Navbar({ items }) {
   return (
     <div>
       {items.map((item) => (
-        <li>
-          <Link to={item}>{item}</Link>
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            <Link className="nav-link" to={item}>
+              {item}
+            </Link>
+          </a>
         </li>
       ))}
     </div>
