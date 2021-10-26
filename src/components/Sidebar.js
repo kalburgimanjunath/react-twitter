@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Avatar from './Avatar';
 import { user } from '../data/sample-data';
+
 export default function Sidebar() {
   const sidebarItem = [
     'home',
@@ -25,7 +26,7 @@ export default function Sidebar() {
       <ul className="nav flex-column">
         <Navbar items={sidebarItem} className="nav-item" />
         <li>
-          <a href="#">Settings</a>
+          <Link href="#">Settings</Link>
         </li>
       </ul>
       <Avatar user={user} />
